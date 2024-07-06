@@ -40,6 +40,8 @@ mixin _$VenueModel {
   int get featured => throw _privateConstructorUsedError;
   @JsonKey(name: "price")
   Map<String, int> get price => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: false)
+  bool? get isFavorite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,7 +65,8 @@ abstract class $VenueModelCopyWith<$Res> {
       @JsonKey(name: "sports") List<String> sports,
       @JsonKey(name: "favourite") int fav,
       @JsonKey(name: "featured") int featured,
-      @JsonKey(name: "price") Map<String, int> price});
+      @JsonKey(name: "price") Map<String, int> price,
+      @JsonKey(defaultValue: false) bool? isFavorite});
 }
 
 /// @nodoc
@@ -89,6 +92,7 @@ class _$VenueModelCopyWithImpl<$Res, $Val extends VenueModel>
     Object? fav = null,
     Object? featured = null,
     Object? price = null,
+    Object? isFavorite = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -131,6 +135,10 @@ class _$VenueModelCopyWithImpl<$Res, $Val extends VenueModel>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -153,7 +161,8 @@ abstract class _$$VenueModelImplCopyWith<$Res>
       @JsonKey(name: "sports") List<String> sports,
       @JsonKey(name: "favourite") int fav,
       @JsonKey(name: "featured") int featured,
-      @JsonKey(name: "price") Map<String, int> price});
+      @JsonKey(name: "price") Map<String, int> price,
+      @JsonKey(defaultValue: false) bool? isFavorite});
 }
 
 /// @nodoc
@@ -177,6 +186,7 @@ class __$$VenueModelImplCopyWithImpl<$Res>
     Object? fav = null,
     Object? featured = null,
     Object? price = null,
+    Object? isFavorite = freezed,
   }) {
     return _then(_$VenueModelImpl(
       id: null == id
@@ -219,6 +229,10 @@ class __$$VenueModelImplCopyWithImpl<$Res>
           ? _value._price
           : price // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -236,7 +250,8 @@ class _$VenueModelImpl implements _VenueModel {
       @JsonKey(name: "sports") required final List<String> sports,
       @JsonKey(name: "favourite") required this.fav,
       @JsonKey(name: "featured") required this.featured,
-      @JsonKey(name: "price") required final Map<String, int> price})
+      @JsonKey(name: "price") required final Map<String, int> price,
+      @JsonKey(defaultValue: false) this.isFavorite})
       : _sports = sports,
         _price = price;
 
@@ -286,8 +301,12 @@ class _$VenueModelImpl implements _VenueModel {
   }
 
   @override
+  @JsonKey(defaultValue: false)
+  final bool? isFavorite;
+
+  @override
   String toString() {
-    return 'VenueModel(id: $id, name: $name, address: $address, km: $km, logo: $logo, rating: $rating, sports: $sports, fav: $fav, featured: $featured, price: $price)';
+    return 'VenueModel(id: $id, name: $name, address: $address, km: $km, logo: $logo, rating: $rating, sports: $sports, fav: $fav, featured: $featured, price: $price, isFavorite: $isFavorite)';
   }
 
   @override
@@ -305,7 +324,9 @@ class _$VenueModelImpl implements _VenueModel {
             (identical(other.fav, fav) || other.fav == fav) &&
             (identical(other.featured, featured) ||
                 other.featured == featured) &&
-            const DeepCollectionEquality().equals(other._price, _price));
+            const DeepCollectionEquality().equals(other._price, _price) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @JsonKey(ignore: true)
@@ -321,7 +342,8 @@ class _$VenueModelImpl implements _VenueModel {
       const DeepCollectionEquality().hash(_sports),
       fav,
       featured,
-      const DeepCollectionEquality().hash(_price));
+      const DeepCollectionEquality().hash(_price),
+      isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -339,17 +361,17 @@ class _$VenueModelImpl implements _VenueModel {
 
 abstract class _VenueModel implements VenueModel {
   const factory _VenueModel(
-          {@JsonKey(name: "id") required final int id,
-          @JsonKey(name: "name") required final String name,
-          @JsonKey(name: "address") required final String address,
-          @JsonKey(name: "kilometres") required final double km,
-          @JsonKey(name: "logo") required final String logo,
-          @JsonKey(name: "rating") required final double rating,
-          @JsonKey(name: "sports") required final List<String> sports,
-          @JsonKey(name: "favourite") required final int fav,
-          @JsonKey(name: "featured") required final int featured,
-          @JsonKey(name: "price") required final Map<String, int> price}) =
-      _$VenueModelImpl;
+      {@JsonKey(name: "id") required final int id,
+      @JsonKey(name: "name") required final String name,
+      @JsonKey(name: "address") required final String address,
+      @JsonKey(name: "kilometres") required final double km,
+      @JsonKey(name: "logo") required final String logo,
+      @JsonKey(name: "rating") required final double rating,
+      @JsonKey(name: "sports") required final List<String> sports,
+      @JsonKey(name: "favourite") required final int fav,
+      @JsonKey(name: "featured") required final int featured,
+      @JsonKey(name: "price") required final Map<String, int> price,
+      @JsonKey(defaultValue: false) final bool? isFavorite}) = _$VenueModelImpl;
 
   factory _VenueModel.fromJson(Map<String, dynamic> json) =
       _$VenueModelImpl.fromJson;
@@ -384,6 +406,9 @@ abstract class _VenueModel implements VenueModel {
   @override
   @JsonKey(name: "price")
   Map<String, int> get price;
+  @override
+  @JsonKey(defaultValue: false)
+  bool? get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$VenueModelImplCopyWith<_$VenueModelImpl> get copyWith =>

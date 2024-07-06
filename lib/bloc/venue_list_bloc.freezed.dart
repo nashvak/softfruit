@@ -19,32 +19,45 @@ mixin _$VenueListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchVenues,
+    required TResult Function(VenueModel venue, BuildContext context)
+        addtoFavourites,
+    required TResult Function(VenueModel venue) removefromFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchVenues,
+    TResult? Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult? Function(VenueModel venue)? removefromFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchVenues,
+    TResult Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult Function(VenueModel venue)? removefromFavourites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchVenues value) fetchVenues,
+    required TResult Function(AddtoFavourites value) addtoFavourites,
+    required TResult Function(RemovefromFavourites value) removefromFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchVenues value)? fetchVenues,
+    TResult? Function(AddtoFavourites value)? addtoFavourites,
+    TResult? Function(RemovefromFavourites value)? removefromFavourites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchVenues value)? fetchVenues,
+    TResult Function(AddtoFavourites value)? addtoFavourites,
+    TResult Function(RemovefromFavourites value)? removefromFavourites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +120,9 @@ class _$FetchVenuesImpl implements FetchVenues {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchVenues,
+    required TResult Function(VenueModel venue, BuildContext context)
+        addtoFavourites,
+    required TResult Function(VenueModel venue) removefromFavourites,
   }) {
     return fetchVenues();
   }
@@ -115,6 +131,8 @@ class _$FetchVenuesImpl implements FetchVenues {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchVenues,
+    TResult? Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult? Function(VenueModel venue)? removefromFavourites,
   }) {
     return fetchVenues?.call();
   }
@@ -123,6 +141,8 @@ class _$FetchVenuesImpl implements FetchVenues {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchVenues,
+    TResult Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult Function(VenueModel venue)? removefromFavourites,
     required TResult orElse(),
   }) {
     if (fetchVenues != null) {
@@ -135,6 +155,8 @@ class _$FetchVenuesImpl implements FetchVenues {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchVenues value) fetchVenues,
+    required TResult Function(AddtoFavourites value) addtoFavourites,
+    required TResult Function(RemovefromFavourites value) removefromFavourites,
   }) {
     return fetchVenues(this);
   }
@@ -143,6 +165,8 @@ class _$FetchVenuesImpl implements FetchVenues {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchVenues value)? fetchVenues,
+    TResult? Function(AddtoFavourites value)? addtoFavourites,
+    TResult? Function(RemovefromFavourites value)? removefromFavourites,
   }) {
     return fetchVenues?.call(this);
   }
@@ -151,6 +175,8 @@ class _$FetchVenuesImpl implements FetchVenues {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchVenues value)? fetchVenues,
+    TResult Function(AddtoFavourites value)? addtoFavourites,
+    TResult Function(RemovefromFavourites value)? removefromFavourites,
     required TResult orElse(),
   }) {
     if (fetchVenues != null) {
@@ -165,28 +191,344 @@ abstract class FetchVenues implements VenueListEvent {
 }
 
 /// @nodoc
+abstract class _$$AddtoFavouritesImplCopyWith<$Res> {
+  factory _$$AddtoFavouritesImplCopyWith(_$AddtoFavouritesImpl value,
+          $Res Function(_$AddtoFavouritesImpl) then) =
+      __$$AddtoFavouritesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VenueModel venue, BuildContext context});
+
+  $VenueModelCopyWith<$Res> get venue;
+}
+
+/// @nodoc
+class __$$AddtoFavouritesImplCopyWithImpl<$Res>
+    extends _$VenueListEventCopyWithImpl<$Res, _$AddtoFavouritesImpl>
+    implements _$$AddtoFavouritesImplCopyWith<$Res> {
+  __$$AddtoFavouritesImplCopyWithImpl(
+      _$AddtoFavouritesImpl _value, $Res Function(_$AddtoFavouritesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? venue = null,
+    Object? context = null,
+  }) {
+    return _then(_$AddtoFavouritesImpl(
+      venue: null == venue
+          ? _value.venue
+          : venue // ignore: cast_nullable_to_non_nullable
+              as VenueModel,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VenueModelCopyWith<$Res> get venue {
+    return $VenueModelCopyWith<$Res>(_value.venue, (value) {
+      return _then(_value.copyWith(venue: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddtoFavouritesImpl implements AddtoFavourites {
+  const _$AddtoFavouritesImpl({required this.venue, required this.context});
+
+  @override
+  final VenueModel venue;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'VenueListEvent.addtoFavourites(venue: $venue, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddtoFavouritesImpl &&
+            (identical(other.venue, venue) || other.venue == venue) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, venue, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddtoFavouritesImplCopyWith<_$AddtoFavouritesImpl> get copyWith =>
+      __$$AddtoFavouritesImplCopyWithImpl<_$AddtoFavouritesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchVenues,
+    required TResult Function(VenueModel venue, BuildContext context)
+        addtoFavourites,
+    required TResult Function(VenueModel venue) removefromFavourites,
+  }) {
+    return addtoFavourites(venue, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchVenues,
+    TResult? Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult? Function(VenueModel venue)? removefromFavourites,
+  }) {
+    return addtoFavourites?.call(venue, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchVenues,
+    TResult Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult Function(VenueModel venue)? removefromFavourites,
+    required TResult orElse(),
+  }) {
+    if (addtoFavourites != null) {
+      return addtoFavourites(venue, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchVenues value) fetchVenues,
+    required TResult Function(AddtoFavourites value) addtoFavourites,
+    required TResult Function(RemovefromFavourites value) removefromFavourites,
+  }) {
+    return addtoFavourites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchVenues value)? fetchVenues,
+    TResult? Function(AddtoFavourites value)? addtoFavourites,
+    TResult? Function(RemovefromFavourites value)? removefromFavourites,
+  }) {
+    return addtoFavourites?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchVenues value)? fetchVenues,
+    TResult Function(AddtoFavourites value)? addtoFavourites,
+    TResult Function(RemovefromFavourites value)? removefromFavourites,
+    required TResult orElse(),
+  }) {
+    if (addtoFavourites != null) {
+      return addtoFavourites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddtoFavourites implements VenueListEvent {
+  const factory AddtoFavourites(
+      {required final VenueModel venue,
+      required final BuildContext context}) = _$AddtoFavouritesImpl;
+
+  VenueModel get venue;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$AddtoFavouritesImplCopyWith<_$AddtoFavouritesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemovefromFavouritesImplCopyWith<$Res> {
+  factory _$$RemovefromFavouritesImplCopyWith(_$RemovefromFavouritesImpl value,
+          $Res Function(_$RemovefromFavouritesImpl) then) =
+      __$$RemovefromFavouritesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VenueModel venue});
+
+  $VenueModelCopyWith<$Res> get venue;
+}
+
+/// @nodoc
+class __$$RemovefromFavouritesImplCopyWithImpl<$Res>
+    extends _$VenueListEventCopyWithImpl<$Res, _$RemovefromFavouritesImpl>
+    implements _$$RemovefromFavouritesImplCopyWith<$Res> {
+  __$$RemovefromFavouritesImplCopyWithImpl(_$RemovefromFavouritesImpl _value,
+      $Res Function(_$RemovefromFavouritesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? venue = null,
+  }) {
+    return _then(_$RemovefromFavouritesImpl(
+      venue: null == venue
+          ? _value.venue
+          : venue // ignore: cast_nullable_to_non_nullable
+              as VenueModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VenueModelCopyWith<$Res> get venue {
+    return $VenueModelCopyWith<$Res>(_value.venue, (value) {
+      return _then(_value.copyWith(venue: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$RemovefromFavouritesImpl implements RemovefromFavourites {
+  const _$RemovefromFavouritesImpl({required this.venue});
+
+  @override
+  final VenueModel venue;
+
+  @override
+  String toString() {
+    return 'VenueListEvent.removefromFavourites(venue: $venue)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemovefromFavouritesImpl &&
+            (identical(other.venue, venue) || other.venue == venue));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, venue);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemovefromFavouritesImplCopyWith<_$RemovefromFavouritesImpl>
+      get copyWith =>
+          __$$RemovefromFavouritesImplCopyWithImpl<_$RemovefromFavouritesImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchVenues,
+    required TResult Function(VenueModel venue, BuildContext context)
+        addtoFavourites,
+    required TResult Function(VenueModel venue) removefromFavourites,
+  }) {
+    return removefromFavourites(venue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchVenues,
+    TResult? Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult? Function(VenueModel venue)? removefromFavourites,
+  }) {
+    return removefromFavourites?.call(venue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchVenues,
+    TResult Function(VenueModel venue, BuildContext context)? addtoFavourites,
+    TResult Function(VenueModel venue)? removefromFavourites,
+    required TResult orElse(),
+  }) {
+    if (removefromFavourites != null) {
+      return removefromFavourites(venue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchVenues value) fetchVenues,
+    required TResult Function(AddtoFavourites value) addtoFavourites,
+    required TResult Function(RemovefromFavourites value) removefromFavourites,
+  }) {
+    return removefromFavourites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchVenues value)? fetchVenues,
+    TResult? Function(AddtoFavourites value)? addtoFavourites,
+    TResult? Function(RemovefromFavourites value)? removefromFavourites,
+  }) {
+    return removefromFavourites?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchVenues value)? fetchVenues,
+    TResult Function(AddtoFavourites value)? addtoFavourites,
+    TResult Function(RemovefromFavourites value)? removefromFavourites,
+    required TResult orElse(),
+  }) {
+    if (removefromFavourites != null) {
+      return removefromFavourites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemovefromFavourites implements VenueListEvent {
+  const factory RemovefromFavourites({required final VenueModel venue}) =
+      _$RemovefromFavouritesImpl;
+
+  VenueModel get venue;
+  @JsonKey(ignore: true)
+  _$$RemovefromFavouritesImplCopyWith<_$RemovefromFavouritesImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$VenueListState {
   ApiStatus get status => throw _privateConstructorUsedError;
   List<VenueModel>? get venueList => throw _privateConstructorUsedError;
   List<VenueModel>? get favouritesList => throw _privateConstructorUsedError;
+  bool? get isFavourite => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ApiStatus status, List<VenueModel>? venueList,
-            List<VenueModel>? favouritesList)
+            List<VenueModel>? favouritesList, bool? isFavourite)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ApiStatus status, List<VenueModel>? venueList,
-            List<VenueModel>? favouritesList)?
+            List<VenueModel>? favouritesList, bool? isFavourite)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ApiStatus status, List<VenueModel>? venueList,
-            List<VenueModel>? favouritesList)?
+            List<VenueModel>? favouritesList, bool? isFavourite)?
         initial,
     required TResult orElse(),
   }) =>
@@ -222,7 +564,8 @@ abstract class $VenueListStateCopyWith<$Res> {
   $Res call(
       {ApiStatus status,
       List<VenueModel>? venueList,
-      List<VenueModel>? favouritesList});
+      List<VenueModel>? favouritesList,
+      bool? isFavourite});
 }
 
 /// @nodoc
@@ -241,6 +584,7 @@ class _$VenueListStateCopyWithImpl<$Res, $Val extends VenueListState>
     Object? status = null,
     Object? venueList = freezed,
     Object? favouritesList = freezed,
+    Object? isFavourite = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -255,6 +599,10 @@ class _$VenueListStateCopyWithImpl<$Res, $Val extends VenueListState>
           ? _value.favouritesList
           : favouritesList // ignore: cast_nullable_to_non_nullable
               as List<VenueModel>?,
+      isFavourite: freezed == isFavourite
+          ? _value.isFavourite
+          : isFavourite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -270,7 +618,8 @@ abstract class _$$InitialImplCopyWith<$Res>
   $Res call(
       {ApiStatus status,
       List<VenueModel>? venueList,
-      List<VenueModel>? favouritesList});
+      List<VenueModel>? favouritesList,
+      bool? isFavourite});
 }
 
 /// @nodoc
@@ -287,6 +636,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? status = null,
     Object? venueList = freezed,
     Object? favouritesList = freezed,
+    Object? isFavourite = freezed,
   }) {
     return _then(_$InitialImpl(
       status: null == status
@@ -301,6 +651,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value._favouritesList
           : favouritesList // ignore: cast_nullable_to_non_nullable
               as List<VenueModel>?,
+      isFavourite: freezed == isFavourite
+          ? _value.isFavourite
+          : isFavourite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -311,7 +665,8 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {required this.status,
       final List<VenueModel>? venueList,
-      final List<VenueModel>? favouritesList})
+      final List<VenueModel>? favouritesList,
+      this.isFavourite = false})
       : _venueList = venueList,
         _favouritesList = favouritesList;
 
@@ -338,8 +693,12 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
+  @JsonKey()
+  final bool? isFavourite;
+
+  @override
   String toString() {
-    return 'VenueListState.initial(status: $status, venueList: $venueList, favouritesList: $favouritesList)';
+    return 'VenueListState.initial(status: $status, venueList: $venueList, favouritesList: $favouritesList, isFavourite: $isFavourite)';
   }
 
   @override
@@ -351,7 +710,9 @@ class _$InitialImpl implements _Initial {
             const DeepCollectionEquality()
                 .equals(other._venueList, _venueList) &&
             const DeepCollectionEquality()
-                .equals(other._favouritesList, _favouritesList));
+                .equals(other._favouritesList, _favouritesList) &&
+            (identical(other.isFavourite, isFavourite) ||
+                other.isFavourite == isFavourite));
   }
 
   @override
@@ -359,7 +720,8 @@ class _$InitialImpl implements _Initial {
       runtimeType,
       status,
       const DeepCollectionEquality().hash(_venueList),
-      const DeepCollectionEquality().hash(_favouritesList));
+      const DeepCollectionEquality().hash(_favouritesList),
+      isFavourite);
 
   @JsonKey(ignore: true)
   @override
@@ -371,32 +733,32 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ApiStatus status, List<VenueModel>? venueList,
-            List<VenueModel>? favouritesList)
+            List<VenueModel>? favouritesList, bool? isFavourite)
         initial,
   }) {
-    return initial(status, venueList, favouritesList);
+    return initial(status, venueList, favouritesList, isFavourite);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ApiStatus status, List<VenueModel>? venueList,
-            List<VenueModel>? favouritesList)?
+            List<VenueModel>? favouritesList, bool? isFavourite)?
         initial,
   }) {
-    return initial?.call(status, venueList, favouritesList);
+    return initial?.call(status, venueList, favouritesList, isFavourite);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ApiStatus status, List<VenueModel>? venueList,
-            List<VenueModel>? favouritesList)?
+            List<VenueModel>? favouritesList, bool? isFavourite)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(status, venueList, favouritesList);
+      return initial(status, venueList, favouritesList, isFavourite);
     }
     return orElse();
   }
@@ -434,7 +796,8 @@ abstract class _Initial implements VenueListState {
   const factory _Initial(
       {required final ApiStatus status,
       final List<VenueModel>? venueList,
-      final List<VenueModel>? favouritesList}) = _$InitialImpl;
+      final List<VenueModel>? favouritesList,
+      final bool? isFavourite}) = _$InitialImpl;
 
   @override
   ApiStatus get status;
@@ -442,6 +805,8 @@ abstract class _Initial implements VenueListState {
   List<VenueModel>? get venueList;
   @override
   List<VenueModel>? get favouritesList;
+  @override
+  bool? get isFavourite;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

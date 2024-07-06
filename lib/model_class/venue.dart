@@ -15,6 +15,7 @@ class VenueModel with _$VenueModel {
     @JsonKey(name: "favourite") required int fav,
     @JsonKey(name: "featured") required int featured,
     @JsonKey(name: "price") required Map<String, int> price,
+    @JsonKey(defaultValue: false) bool? isFavorite,
   }) = _VenueModel;
 
   factory VenueModel.fromJson(Map<String, dynamic> json) =>

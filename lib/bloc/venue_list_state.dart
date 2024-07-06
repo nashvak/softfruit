@@ -6,5 +6,6 @@ class VenueListState with _$VenueListState {
     required ApiStatus status,
     List<VenueModel>? venueList,
     List<VenueModel>? favouritesList,
+    @Default(false) bool? isFavourite,
   }) = _Initial;
 }

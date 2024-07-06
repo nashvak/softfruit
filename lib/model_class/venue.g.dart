@@ -19,6 +19,7 @@ _$VenueModelImpl _$$VenueModelImplFromJson(Map<String, dynamic> json) =>
       fav: (json['favourite'] as num).toInt(),
       featured: (json['featured'] as num).toInt(),
       price: Map<String, int>.from(json['price'] as Map),
+      isFavorite: json['isFavorite'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$VenueModelImplToJson(_$VenueModelImpl instance) =>
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$VenueModelImplToJson(_$VenueModelImpl instance) =>
       'favourite': instance.fav,
       'featured': instance.featured,
       'price': instance.price,
+      'isFavorite': instance.isFavorite,
     };
