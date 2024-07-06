@@ -167,19 +167,27 @@ abstract class FetchVenues implements VenueListEvent {
 /// @nodoc
 mixin _$VenueListState {
   ApiStatus get status => throw _privateConstructorUsedError;
+  List<VenueModel>? get venueList => throw _privateConstructorUsedError;
+  List<VenueModel>? get favouritesList => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ApiStatus status) initial,
+    required TResult Function(ApiStatus status, List<VenueModel>? venueList,
+            List<VenueModel>? favouritesList)
+        initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ApiStatus status)? initial,
+    TResult? Function(ApiStatus status, List<VenueModel>? venueList,
+            List<VenueModel>? favouritesList)?
+        initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ApiStatus status)? initial,
+    TResult Function(ApiStatus status, List<VenueModel>? venueList,
+            List<VenueModel>? favouritesList)?
+        initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -211,7 +219,10 @@ abstract class $VenueListStateCopyWith<$Res> {
           VenueListState value, $Res Function(VenueListState) then) =
       _$VenueListStateCopyWithImpl<$Res, VenueListState>;
   @useResult
-  $Res call({ApiStatus status});
+  $Res call(
+      {ApiStatus status,
+      List<VenueModel>? venueList,
+      List<VenueModel>? favouritesList});
 }
 
 /// @nodoc
@@ -227,13 +238,23 @@ class _$VenueListStateCopyWithImpl<$Res, $Val extends VenueListState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
+    Object? venueList = freezed,
+    Object? favouritesList = freezed,
   }) {
     return _then(_value.copyWith(
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
+      venueList: freezed == venueList
+          ? _value.venueList
+          : venueList // ignore: cast_nullable_to_non_nullable
+              as List<VenueModel>?,
+      favouritesList: freezed == favouritesList
+          ? _value.favouritesList
+          : favouritesList // ignore: cast_nullable_to_non_nullable
+              as List<VenueModel>?,
     ) as $Val);
   }
 }
@@ -246,7 +267,10 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ApiStatus status});
+  $Res call(
+      {ApiStatus status,
+      List<VenueModel>? venueList,
+      List<VenueModel>? favouritesList});
 }
 
 /// @nodoc
@@ -260,13 +284,23 @@ class __$$InitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
+    Object? venueList = freezed,
+    Object? favouritesList = freezed,
   }) {
     return _then(_$InitialImpl(
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
+      venueList: freezed == venueList
+          ? _value._venueList
+          : venueList // ignore: cast_nullable_to_non_nullable
+              as List<VenueModel>?,
+      favouritesList: freezed == favouritesList
+          ? _value._favouritesList
+          : favouritesList // ignore: cast_nullable_to_non_nullable
+              as List<VenueModel>?,
     ));
   }
 }
@@ -274,14 +308,38 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl({required this.status});
+  const _$InitialImpl(
+      {required this.status,
+      final List<VenueModel>? venueList,
+      final List<VenueModel>? favouritesList})
+      : _venueList = venueList,
+        _favouritesList = favouritesList;
 
   @override
   final ApiStatus status;
+  final List<VenueModel>? _venueList;
+  @override
+  List<VenueModel>? get venueList {
+    final value = _venueList;
+    if (value == null) return null;
+    if (_venueList is EqualUnmodifiableListView) return _venueList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<VenueModel>? _favouritesList;
+  @override
+  List<VenueModel>? get favouritesList {
+    final value = _favouritesList;
+    if (value == null) return null;
+    if (_favouritesList is EqualUnmodifiableListView) return _favouritesList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'VenueListState.initial(status: $status)';
+    return 'VenueListState.initial(status: $status, venueList: $venueList, favouritesList: $favouritesList)';
   }
 
   @override
@@ -289,12 +347,19 @@ class _$InitialImpl implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
-            const DeepCollectionEquality().equals(other.status, status));
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality()
+                .equals(other._venueList, _venueList) &&
+            const DeepCollectionEquality()
+                .equals(other._favouritesList, _favouritesList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(status));
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      const DeepCollectionEquality().hash(_venueList),
+      const DeepCollectionEquality().hash(_favouritesList));
 
   @JsonKey(ignore: true)
   @override
@@ -305,27 +370,33 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ApiStatus status) initial,
+    required TResult Function(ApiStatus status, List<VenueModel>? venueList,
+            List<VenueModel>? favouritesList)
+        initial,
   }) {
-    return initial(status);
+    return initial(status, venueList, favouritesList);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ApiStatus status)? initial,
+    TResult? Function(ApiStatus status, List<VenueModel>? venueList,
+            List<VenueModel>? favouritesList)?
+        initial,
   }) {
-    return initial?.call(status);
+    return initial?.call(status, venueList, favouritesList);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ApiStatus status)? initial,
+    TResult Function(ApiStatus status, List<VenueModel>? venueList,
+            List<VenueModel>? favouritesList)?
+        initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(status);
+      return initial(status, venueList, favouritesList);
     }
     return orElse();
   }
@@ -360,10 +431,17 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements VenueListState {
-  const factory _Initial({required final ApiStatus status}) = _$InitialImpl;
+  const factory _Initial(
+      {required final ApiStatus status,
+      final List<VenueModel>? venueList,
+      final List<VenueModel>? favouritesList}) = _$InitialImpl;
 
   @override
   ApiStatus get status;
+  @override
+  List<VenueModel>? get venueList;
+  @override
+  List<VenueModel>? get favouritesList;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

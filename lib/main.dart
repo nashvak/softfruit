@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:softfruit_test/getit_function/getit.dart';
 import 'package:softfruit_test/pages/homepage.dart';
 
 void main() {
+  setGetit();
   runApp(const MyApp());
 }
 
